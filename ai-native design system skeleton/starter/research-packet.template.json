@@ -1,0 +1,18 @@
+{
+  "track": "",
+  "question": "",
+  "checkedAt": "",
+  "localKnowledgeBase": {
+    "available": false,
+    "sources": []
+  },
+  "localEvidence": [],
+  "webEvidence": [],
+  "agreements": [],
+  "tensions": [],
+  "decisions": [],
+  "rejectedAlternatives": [],
+  "configurableAspects": [],
+  "provenance": [],
+  "status": "needs-research"
+}
