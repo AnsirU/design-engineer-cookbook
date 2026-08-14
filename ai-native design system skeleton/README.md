@@ -1,38 +1,70 @@
 # AI-native Design System Skeleton
 
-一个用于快速启动 **Agent 可直接使用的设计系统** 的品牌中立骨架。
+一个用于快速启动 **Agent 可直接使用的设计系统** 的品牌中立母版。
 
-目标不是预先决定视觉，而是把设计系统里“可提前确定的结构”先固定下来：  
-**Foundation → Theme → Components → Patterns → Page Templates → Agent Interface → QA / Governance**。
+目标不是预先决定视觉，而是先固定那些跨品牌可复用的结构：  
+**Research → Brand Intent → Foundations / Theme → Components → Blocks / Recipes → Page Blueprints / Templates → Agent Interface → Doctor / Evals → Knowledge Refresh**。
 
-本骨架从两类来源抽象：
-- 用户提供的 `our-ui` 完整运行上下文：包含 tokens、组件规范、布局、页面模板、交互规范、manifest、recipes、coverage/QA、playground。
-- Meta Astryx：组件 + brand-level theming + templates + CLI/MCP + machine-readable docs/manifest 的 AI-operable 设计系统。
+本骨架从两类核心来源抽象：
+- 用户提供的 `our-ui` 完整运行上下文：tokens、组件规范、布局、页面模板、交互规范、manifest、recipes、coverage/QA、playground。
+- Meta Astryx：accessible components、brand-level theming、page/block/component examples、CLI 与 Agent-first discovery/build workflow。
+
+同时用当前官方资料校准 token、agent knowledge 与 QA：DTCG 2025.10、OpenAI Harness Engineering、Storybook testing/a11y。
 
 ## 一句话原则
 
-> **把“品牌怎么长”留给 Theme，把“界面怎么工作”固化到 Component / Pattern，把“Agent 怎么找到并正确组合”固化到 Manifest / Recipe / Template / QA。**
+> **把“品牌怎么长”留给 Theme，把“界面怎么工作”固化到 Component / Block，把“Agent 怎么找到、组合、验证”固化到 Manifest / Search / Blueprint / Eval。**
 
-## 推荐搭建顺序
+## Consume mode vs System-change mode
 
-1. 填 `starter/theme.contract.json`：先确定视觉轴，不急着填所有 token。
-2. 根据品牌气质生成完整 semantic tokens。
-3. 实现 `starter/component-manifest.json` 中的 P0 组件。
-4. 实现 `starter/page-template-manifest.json` 中的基础页面骨架。
-5. 给每个组件补 machine-readable docs / recipes / examples。
-6. 接入 `starter/agent-manifest.json`，让 Agent 有单一入口发现能力。
-7. 建立 lint / coverage / visual QA，避免 Agent 越写越偏。
+### Consume mode
+Agent 使用已经沉淀好的 tokens / components / recipes / templates / docs。普通页面生成不需要每次重新上网研究。
+
+### System-change mode
+当 Agent 修改 Theme Compiler、组件规则、recipes、templates、Planner、Doctor 或 Agent contract 时，必须：
+1. 先查本地知识库与现有实现；
+2. 对知识缺口检索当前官方/标准资料；
+3. 形成 Research Packet（evidence / agreements / tensions / decisions / rejected alternatives / provenance）；
+4. 再修改系统能力；
+5. 运行 Doctor 与 Golden Eval。
+
+## v0.3 可执行能力
+
+`cli/` 已支持：
+
+```bash
+ds init
+ds capabilities --json
+ds research check
+ds theme create technical --density=compact --geometry=sharp --brand=#19a974
+ds theme compile
+ds search "agent progress" --dense
+ds docs ChatComposer --dense
+ds build "AI agent chat workbench" --json
+ds component Button
+ds template chat-workbench
+ds doctor --json
+ds eval planner --json
+```
+
+当前 Build Planner 使用确定性的 page/block/component ranking，而不是在线 LLM 调用；同一个 prompt 可复现。Theme Compiler 输出 DTCG 2025.10-shaped source tokens、resolved tokens 和 CSS。
 
 ## 目录
 
-- `01-common-architecture.md`：两套系统的共性结构与推荐分层。
-- `02-design-philosophy-and-practices.md`：设计哲学、界面通用实践。
-- `03-component-and-code-skeleton.md`：最低可用组件集、代码结构与 API 原则。
-- `04-agent-operability.md`：如何让 Agent 真正能查、能选、能组合、能验证。
-- `05-prebuild-deposits.md`：品牌未定前还值得提前沉淀的内容。
-- `06-build-checklist.md`：从“品牌气质一句话”到可用系统的执行清单。
-- `starter/`：可以直接复制成新设计系统仓库起点的机器可读文件。
+- `01-common-architecture.md`：共性系统结构。
+- `02-design-philosophy-and-practices.md`：设计哲学与界面通用实践。
+- `03-component-and-code-skeleton.md`：最低可用组件集与代码/API 原则。
+- `04-agent-operability.md`：Agent 如何查、选、组合、验证。
+- `05-prebuild-deposits.md`：品牌未定前可提前沉淀的资产。
+- `06-build-checklist.md`：从品牌气质到系统的执行清单。
+- `07-research-first-implementation.md`：系统级变更的 Research-first contract。
+- `08-maturity-model.md`：成熟度、验证梯度与生产化边界。
+- `research/`：本轮四项核心能力的研究记录与 baseline sources。
+- `starter/`：manifest、theme/token contracts、schemas、golden evals 与代表性组件代码。
+- `cli/`：可执行的 `ds` CLI v0.3。
 
-## 来源边界
+## 当前成熟度边界
 
-本目录不是对任一来源的复制，而是对结构和方法的抽象。具体视觉值、组件数量和实现框架应按项目调整。
+这已经是一套可运行、可检索、可规划、可静态检查、可做 planner golden eval 的 **design-system generator skeleton**，但还不是生产级组件库。
+
+下一阶段生产化重点不是继续无限加静态文档，而是：真实 accessible primitives、rendered component harness、interaction/a11y/visual tests、page blueprint validation、rendered golden-page eval 与版本迁移机制。
