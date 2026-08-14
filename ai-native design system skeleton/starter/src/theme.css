@@ -1,0 +1,57 @@
+:root {
+  --ds-color-text-primary: #111827;
+  --ds-color-text-secondary: #4b5563;
+  --ds-color-text-muted: #9ca3af;
+  --ds-color-bg-canvas: #f9fafb;
+  --ds-color-bg-surface: #ffffff;
+  --ds-color-bg-subtle: #f3f4f6;
+  --ds-color-border: #e5e7eb;
+  --ds-color-action-primary: #2563eb;
+  --ds-color-action-primary-hover: #1d4ed8;
+  --ds-color-danger: #dc2626;
+  --ds-color-focus: #2563eb;
+
+  --ds-space-1: 4px;
+  --ds-space-2: 8px;
+  --ds-space-3: 12px;
+  --ds-space-4: 16px;
+  --ds-space-5: 20px;
+  --ds-space-6: 24px;
+  --ds-space-8: 32px;
+
+  --ds-size-control-sm: 28px;
+  --ds-size-control-md: 36px;
+  --ds-size-control-lg: 44px;
+  --ds-size-hit-target: 44px;
+
+  --ds-radius-control: 8px;
+  --ds-radius-container: 12px;
+  --ds-radius-overlay: 16px;
+  --ds-radius-pill: 999px;
+
+  --ds-shadow-raised: 0 1px 2px rgb(0 0 0 / 0.06);
+  --ds-shadow-popover: 0 8px 24px rgb(0 0 0 / 0.12);
+  --ds-shadow-modal: 0 20px 60px rgb(0 0 0 / 0.18);
+
+  --ds-motion-fast: 120ms;
+  --ds-motion-normal: 180ms;
+  --ds-easing-standard: cubic-bezier(.2, 0, 0, 1);
+}
+
+/* Replace concrete values after brand intent is decided; keep semantic names stable. */
+[data-density='compact'] {
+  --ds-size-control-md: 32px;
+  --ds-space-4: 12px;
+}
+
+[data-density='comfortable'] {
+  --ds-size-control-md: 40px;
+  --ds-space-4: 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --ds-motion-fast: 0ms;
+    --ds-motion-normal: 0ms;
+  }
+}
