@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "tokenGroups": [
+    {"id": "color", "semantic": ["text.primary", "text.secondary", "text.muted", "bg.canvas", "bg.surface", "bg.subtle", "border.default", "action.primary", "action.primaryHover", "feedback.success", "feedback.warning", "feedback.danger", "focus.ring"]},
+    {"id": "space", "semantic": ["1", "2", "3", "4", "5", "6", "8", "10", "12", "16", "20", "24", "32"]},
+    {"id": "size", "semantic": ["control.sm", "control.md", "control.lg", "icon.sm", "icon.md", "icon.lg", "hitTarget.min"]},
+    {"id": "radius", "semantic": ["control", "container", "overlay", "pill"]},
+    {"id": "shadow", "semantic": ["raised", "popover", "modal"]},
+    {"id": "motion", "semantic": ["duration.fast", "duration.normal", "duration.slow", "easing.standard", "easing.enter", "easing.exit"]},
+    {"id": "type", "semantic": ["body.sm", "body.md", "label", "title.sm", "title.md", "title.lg", "mono"]}
+  ],
+  "rules": [
+    "Components consume semantic tokens only",
+    "Theme may change values but not token meaning",
+    "Avoid component-local raw values unless documented as an exception"
+  ]
+}
