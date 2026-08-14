@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "tiers": {
+    "P0": {
+      "primitives": ["Text", "Icon", "Button", "IconButton", "Link", "Separator", "VisuallyHidden"],
+      "form": ["FormField", "TextInput", "TextArea", "NumberInput", "Checkbox", "RadioGroup", "Switch", "Select", "Combobox", "SearchInput"],
+      "navigation": ["Tabs", "SegmentedControl", "Breadcrumb", "Pagination", "SideNav", "TopNav"],
+      "layout": ["Stack", "Inline", "Grid", "Container", "Card", "ScrollArea", "AppShell"],
+      "overlay": ["Dialog", "AlertDialog", "Drawer", "Popover", "DropdownMenu", "Tooltip"],
+      "feedback": ["Badge", "Status", "Alert", "Toast", "Spinner", "Progress", "Skeleton", "EmptyState"],
+      "data": ["Table", "ListItem", "Avatar", "Tag", "KeyValue", "Metric"],
+      "agent": ["ChatMessage", "ChatComposer", "ContextChip", "AttachmentCard", "ExecutionStep", "ToolCallRow", "TaskList", "ArtifactCard", "ApprovalPrompt", "DiffSummary", "AgentStatus"]
+    },
+    "P1": ["Tree", "TreeSelect", "CommandPalette", "FileTree", "Calendar", "Timeline", "Stepper", "DataGrid", "CodeBlock", "Markdown", "Chart", "SplitPane", "Dropzone", "Slider"]
+  },
+  "componentContract": ["purpose", "whenToUse", "whenNotToUse", "props", "slots", "states", "accessibility", "tokens", "recipes", "examples", "antiPatterns", "status"]
+}
