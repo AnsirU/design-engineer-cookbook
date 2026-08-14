@@ -1,0 +1,19 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://design-engineer-cookbook.local/page-blueprint.schema.json",
+  "title":"Agent-ready Page Blueprint",
+  "type":"object",
+  "required":["id","purpose","archetype","regions","states","recipes"],
+  "properties":{
+    "id":{"type":"string"},
+    "purpose":{"type":"string"},
+    "archetype":{"type":"string"},
+    "userTasks":{"type":"array","items":{"type":"string"}},
+    "regions":{"type":"array","items":{"type":"object","required":["id","role","components"],"properties":{"id":{"type":"string"},"role":{"type":"string"},"components":{"type":"array","items":{"type":"string"}},"layout":{"type":"string"},"priority":{"enum":["primary","secondary","utility"]}}}},
+    "states":{"type":"array","items":{"enum":["default","loading","empty","error","success","disabled","blocked","offline"]}},
+    "recipes":{"type":"array","items":{"type":"string"}},
+    "invariants":{"type":"array","items":{"type":"string"}},
+    "configurable":{"type":"array","items":{"type":"string"}},
+    "evidence":{"type":"array","items":{"type":"string"}}
+  }
+}
