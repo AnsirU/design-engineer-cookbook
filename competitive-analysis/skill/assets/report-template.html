@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{REPORT_TITLE}}</title>
+<style>
+:root{--ink:#111827;--muted:#64748b;--line:#e5e7eb;--blue:#2563eb;--sidebar:236px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;padding-left:var(--sidebar);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:#fff}
+aside{position:fixed;left:0;top:0;bottom:0;width:var(--sidebar);border-right:1px solid var(--line);background:#fff;padding:22px 14px;overflow:auto}
+aside a{display:block;padding:8px 10px;border-radius:8px;font-size:12px;color:#475569;text-decoration:none}
+aside a.active{background:#eff6ff;color:#1d4ed8;font-weight:700}
+.wrap{max-width:1380px;margin:auto;padding:0 50px}
+header{padding:64px 0 44px;border-bottom:1px solid var(--line)}
+section{padding:52px 0;border-bottom:1px solid #eef1f5}
+h1{font-size:44px;line-height:1.15;letter-spacing:-.03em;margin:8px 0 14px}
+h2{font-size:29px}h3{font-size:18px}
+.k{font-size:11px;font-weight:900;letter-spacing:.1em;color:var(--blue);text-transform:uppercase}
+.lead{font-size:17px;color:#475569;line-height:1.7}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:15px;padding:18px;background:#fff}
+.shot{margin:0;border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.shot-img{height:320px;background:#f8fafc;display:flex;align-items:center;justify-content:center}
+.shot-img img{width:100%;height:100%;object-fit:contain;cursor:zoom-in}
+figcaption{padding:10px 12px;font-size:11px;line-height:1.5}
+@media(max-width:850px){body{padding-left:0}aside{display:none}.wrap{padding:0 22px}.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<aside>
+<a href="#goal">01 研究目标</a>
+<a href="#scope">02 范围与样本</a>
+<a href="#framework">03 分析框架</a>
+<a href="#findings">04 综合结论</a>
+<a href="#direction">05 设计结论</a>
+<a href="#products">06 核心产品</a>
+<a href="#supp">07 补充样本</a>
+<a href="#next">08 下一步</a>
+</aside>
+<header><div class="wrap"><div class="k">Competitive Research</div><h1>{{REPORT_TITLE}}</h1><p class="lead">{{OBJECTIVE}}</p></div></header>
+<section id="goal"><div class="wrap"><div class="k">01 · Goal</div><h2>研究目标</h2>{{GOAL}}</div></section>
+<section id="scope"><div class="wrap"><div class="k">02 · Scope</div><h2>研究范围与样本</h2>{{SCOPE}}</div></section>
+<section id="framework"><div class="wrap"><div class="k">03 · Framework</div><h2>分析框架</h2>{{FRAMEWORK}}</div></section>
+<section id="findings"><div class="wrap"><div class="k">04 · Findings</div><h2>跨产品综合结论</h2>{{FINDINGS}}</div></section>
+<section id="direction"><div class="wrap"><div class="k">05 · Direction</div><h2>设计结论</h2>{{DIRECTION}}</div></section>
+<section id="products"><div class="wrap"><div class="k">06 · Core Products</div><h2>核心产品</h2>{{PRODUCTS}}</div></section>
+<section id="supp"><div class="wrap"><div class="k">07 · Supplement</div><h2>补充样本</h2>{{SUPP}}</div></section>
+<section id="next"><div class="wrap"><div class="k">08 · Next</div><h2>下一步研究规划</h2>{{NEXT}}</div></section>
+<script>
+const links=[...document.querySelectorAll('aside a')],ids=links.map(a=>a.getAttribute('href').slice(1));
+function u(){let c=ids[0],t=-Infinity;for(const id of ids){const e=document.getElementById(id);if(!e)continue;const x=e.getBoundingClientRect().top;if(x<=140&&x>t){t=x;c=id}}links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+c))}
+addEventListener('scroll',u,{passive:true});u();
+</script>
+</body></html>
