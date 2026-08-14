@@ -16,6 +16,7 @@ export type ChatComposerProps = {
   disabled?: boolean;
   placeholder?: string;
   toolbar?: React.ReactNode;
+  renderRemoveIcon?: () => React.ReactNode;
 };
 
 export function ChatComposer({
@@ -28,6 +29,7 @@ export function ChatComposer({
   disabled = false,
   placeholder = 'Ask anything…',
   toolbar,
+  renderRemoveIcon,
 }: ChatComposerProps) {
   const canSubmit = !disabled && (value.trim().length > 0 || context.length > 0);
 
@@ -39,7 +41,9 @@ export function ChatComposer({
             <span key={item.id} data-kind={item.kind} className="ds-context-chip">
               <span>{item.label}</span>
               {onRemoveContext ? (
-                <button type="button" aria-label={`Remove ${item.label}`} onClick={() => onRemoveContext(item.id)}>×</button>
+                <button type="button" aria-label={`Remove ${item.label}`} onClick={() => onRemoveContext(item.id)}>
+                  {renderRemoveIcon ? renderRemoveIcon() : <span>Remove</span>}
+                </button>
               ) : null}
             </span>
           ))}
