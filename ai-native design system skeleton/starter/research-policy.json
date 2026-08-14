@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "mode": "research-first",
+  "requiredFor": [
+    "theme-compiler",
+    "agent-search-docs",
+    "build-planner",
+    "design-system-doctor"
+  ],
+  "retrievalOrder": [
+    "local-product-source-of-truth",
+    "local-design-system-knowledge-base",
+    "standards-and-specifications",
+    "official-design-system-or-framework-docs",
+    "first-party-design-engineering-articles",
+    "secondary-analysis",
+    "explicitly-labeled-inference"
+  ],
+  "packetPath": "design-system/research/<track>.json",
+  "packetRequirements": {
+    "question": true,
+    "localEvidenceWhenAvailable": true,
+    "externalEvidenceWhenUseful": true,
+    "agreements": true,
+    "tensions": true,
+    "decisions": true,
+    "provenance": true,
+    "checkedAt": true
+  },
+  "rule": "Research findings inform decisions; they do not become system rules automatically. Product-specific constraints take precedence over generic guidance."
+}
