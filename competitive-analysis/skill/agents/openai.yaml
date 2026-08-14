@@ -1,0 +1,13 @@
+interface:
+  display_name: competitive analysis research
+  short_description: 用于产品、UX、交互和 AI 产品的竞品分析研究。会先判断需求是模糊还是明确，定义研究问题，搜索该产品类型已有的成熟研究框架与设计方法，生成候选竞品并让用户快速确认，再进行证据驱动的深度分析，最终输出一个本地可直接打开的
+    HTML 报告。适用于竞品调研、产品体验拆解、设计 benchmark、交互范式研究和设计方向提炼。
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
