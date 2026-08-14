@@ -1,0 +1,13 @@
+{
+  "apiVersion": 1,
+  "name": "design-system-skeleton",
+  "capabilities": {
+    "search": ["component", "pattern", "template", "token", "docs"],
+    "read": ["componentDetail", "templateSkeleton", "recipe", "tokenGroup"],
+    "generate": ["pageFromTemplate", "themeFromContract"],
+    "validate": ["tokenCompliance", "componentCoverage", "accessibility", "visualRegression"]
+  },
+  "outputFormats": ["human", "json", "dense"],
+  "workflow": ["classifyIntent", "readLocalOverrides", "chooseTemplate", "chooseRecipes", "readComponentDocs", "implement", "validate", "reportDeviations"],
+  "sourcePriority": ["local-overrides", "component-spec", "design-foundations", "templates", "legacy-implementation"]
+}
