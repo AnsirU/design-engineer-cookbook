@@ -1,0 +1,20 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://design-engineer-cookbook.local/component-doc.schema.json",
+  "title":"Agent-ready Component Doc",
+  "type":"object",
+  "required":["name","role","whenToUse","states","accessibility","tokens"],
+  "properties":{
+    "name":{"type":"string"},"role":{"type":"string"},
+    "whenToUse":{"type":"array","items":{"type":"string"}},
+    "whenNotToUse":{"type":"array","items":{"type":"string"}},
+    "states":{"type":"array","items":{"type":"string"}},
+    "parts":{"type":"array","items":{"type":"string"}},
+    "props":{"type":"object"},
+    "accessibility":{"type":"array","items":{"type":"string"}},
+    "tokens":{"type":"array","items":{"type":"string"}},
+    "related":{"type":"array","items":{"type":"string"}},
+    "examples":{"type":"array","items":{"type":"object"}},
+    "source":{"type":"array","items":{"type":"string"}}
+  }
+}
