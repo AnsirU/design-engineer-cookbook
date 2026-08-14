@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "templates": [
+    {"id": "app-shell", "archetype": "shell", "uses": ["AppShell", "SideNav", "TopNav"]},
+    {"id": "data-table-page", "archetype": "table", "uses": ["PageHeader", "SearchInput", "Select", "Table", "Pagination"]},
+    {"id": "object-grid-page", "archetype": "grid", "uses": ["PageHeader", "Tabs", "SearchInput", "Card"]},
+    {"id": "detail-page", "archetype": "detail", "uses": ["PageHeader", "Tabs", "KeyValue", "Card"]},
+    {"id": "settings-page", "archetype": "settings", "uses": ["SideNav", "FormField", "Switch", "Button"]},
+    {"id": "dashboard", "archetype": "analytics", "uses": ["Metric", "Card", "Chart", "Table"]},
+    {"id": "chat-workbench", "archetype": "agent-chat", "uses": ["ChatMessage", "ExecutionStep", "ArtifactCard", "ChatComposer"]},
+    {"id": "builder-workbench", "archetype": "workbench", "uses": ["AppShell", "SplitPane", "FileTree", "Tabs", "ChatComposer"]}
+  ],
+  "requiredMetadata": ["useCases", "skeleton", "preview", "components", "slots", "responsive", "states", "customizationPoints", "antiPatterns"]
+}
