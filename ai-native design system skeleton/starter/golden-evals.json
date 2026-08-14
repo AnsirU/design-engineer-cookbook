@@ -1,0 +1,13 @@
+{
+  "version":1,
+  "purpose":"Detect whether skeleton changes improve or degrade agent design-system use.",
+  "tasks":[
+    {"id":"agent-workbench","prompt":"Build an AI agent chat workbench with progress, approvals and a persistent artifact preview.","expectedArchetype":"chat-workbench","requiredRecipes":["conversation","agentExecution","artifactReview"],"forbidden":["ad-hoc raw controls","inline brand values"]},
+    {"id":"analytics-dashboard","prompt":"Build an analytics dashboard with KPI summary, filters and a reviewable data table.","expectedArchetype":"dashboard","requiredRecipes":["filters","dataReview"]},
+    {"id":"dense-operations","prompt":"Build a high density permissions management screen with filters, status and pagination.","expectedArchetype":"dense-table","requiredRecipes":["filters","dataReview"]},
+    {"id":"settings","prompt":"Build a settings page with validation and a destructive reset action.","expectedArchetype":"settings-form","requiredRecipes":["form","confirmation"]},
+    {"id":"artifact-builder","prompt":"Build a creation workspace with a structured editor and persistent generated preview.","expectedArchetype":"builder-workbench","requiredRecipes":["form","artifactReview"]},
+    {"id":"fuzzy-language","prompt":"I need a KPI overview where I can refine records and inspect the output.","expectedArchetype":"dashboard","requiredRecipes":["filters","dataReview"]}
+  ],
+  "metrics":["archetypeAccuracy","recipeRecall","componentAdoption","tokenCompliance","adHocPrimitiveCount","repairTurns","a11yFailures","blueprintDrift"]
+}
