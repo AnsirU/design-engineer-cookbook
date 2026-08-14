@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "brandIntent": {
+    "keywords": ["precise", "calm", "technical"],
+    "antiKeywords": ["decorative", "toy-like", "marketing-heavy"],
+    "density": "default",
+    "geometry": "balanced",
+    "elevation": "subtle",
+    "motion": "responsive",
+    "colorStrategy": "neutral-led",
+    "typography": "TBD",
+    "iconStyle": "TBD"
+  },
+  "axes": {
+    "density": ["compact", "default", "comfortable"],
+    "geometry": ["sharp", "balanced", "rounded"],
+    "elevation": ["flat", "subtle", "layered"],
+    "motion": ["quiet", "responsive", "expressive"],
+    "colorStrategy": ["neutral-led", "brand-led", "expressive"]
+  },
+  "note": "Replace intent values first; generate concrete tokens second."
+}
