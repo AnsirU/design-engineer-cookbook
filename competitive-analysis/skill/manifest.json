@@ -1,0 +1,8 @@
+{
+  "display_name": "竞品分析研究",
+  "skill_name": "competitive-analysis-research",
+  "version": "2.0",
+  "format": "Agent Skills open standard",
+  "primary_output": "local HTML",
+  "entry": "SKILL.md"
+}
