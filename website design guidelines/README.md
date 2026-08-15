@@ -1,54 +1,82 @@
 # Website Design Guidelines
 
-A living knowledge base for studying modern, minimal product websites and turning observations into reusable layout, typography, spacing, composition, interaction, and implementation rules.
+A lightweight methodology for turning a real website into an AI-readable `DESIGN.md`.
 
-## Purpose
+The main goal of this folder is **not to maintain a large catalog of copied website styles**. Website implementations change, extracted tokens become stale, and the best reference may be different for every project. Instead, this folder should preserve:
 
-This folder is not a gallery. It is intended to help a designer or an AI agent answer questions such as:
+- a stable reverse-engineering structure;
+- a source-audit method;
+- evidence / confidence rules;
+- a curated map of high-quality reference sites;
+- optional rendering guidance for turning a DESIGN.md into a visual specimen or product prototype.
 
-- What makes a modern product website feel calm, precise, premium, or technical?
-- Which layout and typography decisions create that feeling?
-- Which values are source-confirmed, and which are visual estimates?
-- Which rules are reusable across reports, portfolios, product landing pages, and design-challenge deliverables?
-- How should a visual reference be translated into a `design.md` rather than copied literally?
-
-## Structure
+## Recommended structure
 
 ```text
 website design guidelines/
 ├── README.md
 ├── framework/
 │   ├── analysis-dimensions.md
-│   └── evidence-and-confidence.md
+│   ├── evidence-and-confidence.md
+│   ├── source-audit-protocol.md
+│   └── implementation-strategy.md
 ├── templates/
 │   └── website-study-template.md
-├── studies/
-│   ├── linear.md
-│   ├── vercel.md
-│   ├── raycast.md
-│   ├── attio.md
-│   ├── framer.md
-│   ├── supabase.md
-│   ├── resend.md
-│   ├── notion.md
-│   ├── stripe.md
-│   └── figma.md
-└── syntheses/
-    ├── modern-minimal-principles.md
-    └── design-md-seed.md
+├── references/
+│   └── README.md
+├── studies/              # optional / historical examples
+├── creative-studios/     # optional / historical examples
+└── syntheses/            # optional reusable principles
 ```
 
-## How to use
+## Default workflow for an agent
 
-1. Pick 2–4 studies that match the desired product tone.
-2. Read the **Reusable rules** section first.
-3. Use the detailed notes only when you need to understand the rationale.
-4. Merge compatible rules into a project-specific `design.md`.
-5. Preserve the target product's design DNA; use references as calibration, not as a skin.
-6. When exact implementation values are not publicly available, treat numeric values as estimates, not facts.
+When asked to create a new DESIGN.md:
 
-## Current reference set
+1. Read `templates/website-study-template.md`.
+2. Read `framework/source-audit-protocol.md` and `framework/evidence-and-confidence.md`.
+3. Read `references/README.md` for current benchmark sources such as Vercel, Refero Styles, and the DESIGN.md specification.
+4. Inspect the target website itself. Prefer current production source and first-party design documentation over old notes in this repository.
+5. Extract source-confirmed values before making visual inferences.
+6. Fill the template with tokens, layout rules, component recipes, interaction behavior, responsive transformations, Do / Don't guidance, and source evidence.
+7. If useful, derive secondary outputs from the same DESIGN.md:
+   - CSS variables
+   - Tailwind theme
+   - design tokens / JSON
+   - specimen HTML
+   - shadcn / Radix product-theme overrides
 
-The first set focuses on modern product/design-engineering aesthetics: Linear, Vercel, Raycast, Attio, Framer, Supabase, Resend, Notion, Stripe, and Figma.
+## What a good DESIGN.md should answer
 
-The collection should expand by **design archetype**, not just by brand: dense B2B, editorial product storytelling, developer tool, portfolio, data product, AI agent, mobile web, documentation, and research/report layouts.
+A capable agent should be able to read the file and understand:
+
+- what the product should feel like;
+- exact or best-known colors, typography, spacing, radii, borders, and elevation;
+- how dense the interface should be;
+- how pages are laid out and aligned;
+- how recurring components are constructed;
+- what hover, focus, active, loading, error, and responsive behavior should do;
+- which rules are source-confirmed versus reconstructed;
+- what must **not** be copied blindly.
+
+## Source priority
+
+```text
+Official DESIGN.md / design system / brand docs
+→ production HTML / CSS / variables / fonts / JS
+→ rendered measurements
+→ high-quality extraction libraries such as Refero
+→ visual interpretation
+```
+
+Never present a visual estimate as an official implementation token.
+
+## Key principle
+
+**Copy the system, not the website.**
+
+Use references to constrain taste, density, hierarchy, component weight, and interaction quality. Preserve the target product's business requirements, information architecture, and design DNA instead of blindly reskinning it.
+
+## Existing studies
+
+The existing `studies/` and `creative-studios/` folders can remain as historical examples, but they are no longer the primary knowledge source. New work should normally be generated fresh from the current target URL using the template and source-audit process.
