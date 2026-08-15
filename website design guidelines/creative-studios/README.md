@@ -1,39 +1,44 @@
-# Creative Studios — Reverse-engineered Website Systems
+# Creative Studios — Source-audited Website Systems
 
 This section complements the mature product-company references in `studies/` with more expressive, art-directed, and experimental web systems.
 
-Each studio has two artifacts:
+## Standard
+A study is no longer considered complete from visual inspection alone. Each reference should be reverse-engineered **source first**, using the protocol in `../framework/source-audit-protocol.md`, then expressed as a machine-readable + human-readable `design.md` following the upgraded template.
 
-- `design.md` — reverse-engineered design language, evidence level, reusable rules, and implementation guidance.
-- `specimen.html` — a self-contained browser specimen that demonstrates the reconstructed visual system with tokens, typography, layout, components, and motion. It is **not a pixel-perfect clone** and does not redistribute proprietary fonts or brand assets.
+Each studio should have:
+- `design.md` — YAML design tokens + detailed usage rationale + source audit + agent prompt guide.
+- `specimen.html` — self-contained visual specimen generated from the audited design language. It should demonstrate typography, color, layout, spacing, components, states, responsive behavior, and motion where relevant.
 
-## First set
+## Current set and audit status
 
-1. **Studio Freight** — brutal elegance; stark editorial contrast, purposeful reduction, diagrammatic/surreal graphic logic.
-2. **PORTO ROCHA** — cultural/editorial modernism; project density, typography-led indexing, flexible identity systems.
-3. **DIA** — kinetic identity; typography as motion system, high contrast, modular and time-based composition.
-4. **Locomotive** — immersive digital-first design; cinematic pacing, bold type, code-driven motion, expressive interaction.
+| Reference | Style value | Audit status |
+|---|---|---|
+| Studio Freight | brutal elegance / schematic graphic language | **visual/official-language only — needs source audit before numeric tokens are trusted** |
+| PORTO ROCHA | editorial modernism / dense project indexing | **partial source-audited** |
+| DIA | kinetic identity / typography-as-motion | **official typography evidence + visual reconstruction — needs deeper CSS audit** |
+| Locomotive | editorial / cinematic / monochrome portfolio | **partial source-audited** |
 
 ## Evidence model
-
-- **A — Source confirmed:** explicitly stated by the studio/official website or directly verifiable in public source material.
-- **B — Strong reconstruction:** repeated visual behavior inferred from the live site; useful as a working approximation, not an official token.
-- **C — Transferable interpretation:** a design principle synthesized for reuse.
+- **A — Direct source confirmation:** public HTML/CSS/assets, official design docs, public component docs.
+- **B — Measured reconstruction:** repeated values extracted/measured from the live implementation, including reliable secondary CSS/DOM extraction tools.
+- **C — Transferable interpretation:** design principle synthesized for reuse.
 
 ## Implementation decision
+Use **native HTML/CSS/JS for design-language specimens**. The purpose of the specimen is to expose the reference's own visual grammar without inheriting shadcn's default anatomy.
 
-For these specimens, prefer **native HTML/CSS/JS** over shadcn/ui. The goal is to express each website's unique brand grammar without inheriting shadcn's default geometry, component anatomy, or interaction styling.
-
-Use **shadcn/ui later as a product-prototype substrate** when you need reliable primitives such as Dialog, Popover, Tooltip, Tabs, Select, Table, and Form. In that case, apply the project's `design.md` as a transformation layer rather than using shadcn's default visual identity.
-
-Recommended pipeline:
+Use **shadcn/ui / Radix / Base UI for product prototypes** when reliable interaction primitives are useful. In that workflow, `design.md` is the transformation layer that replaces the primitive library's default visual identity.
 
 ```text
-Reference website
-→ reverse engineering
-→ design.md
-→ visual specimen (native HTML/CSS)
-→ product-specific design.md
-→ shadcn / product primitives
+Live website / public source
+→ source audit
+→ DESIGN.md
+→ native HTML specimen
+→ product-specific DESIGN.md
+→ shadcn / primitives when appropriate
 → final interactive prototype
 ```
+
+## Next audit priority
+1. Studio Freight — inspect live CSS/font declarations and rebuild tokens from source.
+2. DIA — inspect typography, kinetic motion rules, CSS/JS transition values, and responsive behavior.
+3. Regenerate all specimen HTML files from the new DESIGN.md schema so the HTML is a faithful visualization of the knowledge base rather than a separately art-directed artifact.
