@@ -12,22 +12,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Materialize canonical HTML when payload exists
+      - name: Materialize canonical HTML when all payload chunks exist
         shell: bash
         run: |
           set -euo pipefail
-          PAYLOAD="case study showcase deck/.deck-v62-payload.b64"
-          OUTPUT="case study showcase deck/case-study-showcase-deck.html"
+          DIR="case study showcase deck"
+          OUTPUT="$DIR/case-study-showcase-deck.html"
           WORKFLOW=".github/workflows/materialize-case-study-showcase-deck-v62.yml"
-          if [ ! -f "$PAYLOAD" ]; then
-            echo "Payload not present yet; waiting for next push."
-            exit 0
-          fi
-          base64 -d "$PAYLOAD" | gzip -d > "$OUTPUT"
-          rm "$PAYLOAD"
-          rm "$WORKFLOW"
+          MONO="$DIR/.deck-v62-payload.b64"
+          CHUNKS=(
+            "$DIR/.deck-v62-payload-01.b64"
+            "$DIR/.deck-v62-payload-02.b64"
+            "$DIR/.deck-v62-payload-03.b64"
+            "$DIR/.deck-v62-payload-04.b64"
+            "$DIR/.deck-v62-payload-05.b64"
+            "$DIR/.deck-v62-payload-06.b64"
+          )
+          for f in "${CHUNKS[@]}"; do
+            if [ ! -f "$f" ]; then
+              echo "Waiting for all payload chunks. Missing: $f"
+              exit 0
+            fi
+          done
+          cat "${CHUNKS[@]}" | base64 -d | gzip -d > "$OUTPUT"
+          rm -f "$MONO" "${CHUNKS[@]}" "$WORKFLOW"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "$OUTPUT" "$PAYLOAD" "$WORKFLOW"
+          git add -A
           git commit -m "Update case study showcase deck v6.2 style audit"
           git push
